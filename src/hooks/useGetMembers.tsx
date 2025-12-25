@@ -1,5 +1,5 @@
 "use client";
-import { getMembers } from "@/api/memberFunc";
+import { getMembers } from "@/api/member.controller";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetMembers = () => {

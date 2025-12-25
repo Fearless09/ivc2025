@@ -1,5 +1,5 @@
 import ConfirmPayment from "./components/ConfirmPayment";
-import { getMembers } from "@/api/memberFunc";
+import { getMembers } from "@/api/member.controller";
 
 const ConfirmPaymentPage = async () => {
   const member = await getMembers();

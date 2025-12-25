@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteMemberById } from "@/api/memberFunc";
+import { deleteMemberById } from "@/api/member.controller";
 import { useMutation } from "@tanstack/react-query";
 
 export const useDeleteMember = () => {

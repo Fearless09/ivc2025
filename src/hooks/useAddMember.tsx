@@ -1,6 +1,6 @@
 "use client";
 
-import { addMember } from "@/api/memberFunc";
+import { addMember } from "@/api/member.controller";
 import { useMutation } from "@tanstack/react-query";
 
 export const useAddMember = () => {

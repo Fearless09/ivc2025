@@ -1,25 +1,15 @@
-"use client";
-
-import { useEffect } from "react";
 import Admin from "./components/Admin";
 import Login from "./components/Login";
-import { useToggle } from "@/hooks/useToggle";
+import { isAdminLoggedIn } from "@/api/auth.controller";
 
-const AdminPage = () => {
-  const [isAuthenticated, toggleAuthenticated] = useToggle(false);
-
-  useEffect(() => {
-    const checkSession = sessionStorage.getItem("isAdmin");
-    if (checkSession) {
-      toggleAuthenticated(true);
-    }
-  }, [toggleAuthenticated]);
+const AdminPage = async () => {
+  const isAuthenticated = await isAdminLoggedIn();
 
   if (!isAuthenticated) {
-    return <Login logIn={() => toggleAuthenticated(true)} />;
+    return <Login />;
   }
 
-  return <Admin logOut={() => toggleAuthenticated(false)} />;
+  return <Admin />;
 };
 
 export default AdminPage;

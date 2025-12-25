@@ -1,5 +1,6 @@
 "use client";
 
+import { logOutAdmin } from "@/api/auth.controller";
 import { APP_CONFIG } from "@/data/constant";
 import { useAddMember } from "@/hooks/useAddMember";
 import { useDeleteMember } from "@/hooks/useDeleteMember";
@@ -7,9 +8,9 @@ import { useGetMembers } from "@/hooks/useGetMembers";
 import { cn } from "@/utils/cn";
 import { Trash } from "lucide-react";
 import Link from "next/link";
-import { FC, useState } from "react";
+import { useState } from "react";
 
-const Admin: FC<{ logOut: () => void }> = ({ logOut }) => {
+const Admin = () => {
   const { members, refetch } = useGetMembers();
   const { addMemberAsync, isPending: addingMember } = useAddMember();
   const { deleteMemberAsync, isPending: deletingMember } = useDeleteMember();
@@ -26,9 +27,9 @@ const Admin: FC<{ logOut: () => void }> = ({ logOut }) => {
       setNewEmail("");
     });
   };
+
   const handleLogout = () => {
-    logOut();
-    sessionStorage.removeItem("isAdmin");
+    logOutAdmin();
   };
 
   const handleDelete = (id: number) => {
@@ -38,6 +39,7 @@ const Admin: FC<{ logOut: () => void }> = ({ logOut }) => {
       });
     }
   };
+
   return (
     <section className="min-h-screen bg-slate-50 pt-32 pb-24">
       <section className="wrapper max-w-6xl">

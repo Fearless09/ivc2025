@@ -1,36 +1,35 @@
 "use client";
 
-import { APP_CONFIG } from "@/data/constant";
+import { logInAdmin } from "@/api/auth.controller";
 import { LockKeyhole } from "lucide-react";
-import { FC, useState } from "react";
+import { useState } from "react";
 
-const Login: FC<{ logIn: () => void }> = ({ logIn }) => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
 
   // Simplified hardcoded credentials for demonstration
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (
-      username === APP_CONFIG.admin.username &&
-      password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD
-    ) {
-      logIn();
-      setLoginError("");
-      sessionStorage.setItem("isAdmin", "true");
-    } else {
+    const { success } = await logInAdmin(username, password);
+
+    if (!success) {
       setLoginError("Invalid username or password");
+      return;
     }
+
+    setLoginError("");
   };
 
   return (
     <div className="bg-slate-50 px-4 pt-32 pb-24">
       <div className="wrapper max-w-md rounded-3xl border border-black/7 bg-white px-4 py-6 shadow-xl sm:p-8!">
         <header className="mb-8 text-center">
-          <div className="mb-4 inline-flex size-16 items-center justify-center rounded-2xl bg-emerald-100">
+          <span className="mb-4 inline-flex size-16 items-center justify-center rounded-2xl bg-emerald-100">
             <LockKeyhole className="size-8 text-emerald-600" />
-          </div>
+          </span>
+
           <h1 className="text-2xl font-black text-slate-900">Admin Login</h1>
           <p className="mt-2 text-sm text-slate-500">
             Access restricted to authorized personnel
