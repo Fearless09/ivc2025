@@ -5,11 +5,11 @@ import Organizer from "./components/Organizer";
 
 export default function Home() {
   return (
-    <section>
+    <>
       <Hero />
       <Details />
       <FinSupport />
       <Organizer />
-    </section>
+    </>
   );
 }

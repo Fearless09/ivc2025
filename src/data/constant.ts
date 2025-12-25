@@ -18,6 +18,10 @@ export const APP_CONFIG = {
     secondaryTertiary: 4000,
   },
   externalRegLink: "https://forms.gle/N2sG1K4Eg86CKzzRA", // Replace with actual link
+  admin: {
+    username: "admin",
+    password: "ivc2025",
+  },
 };
 
 export const COLORS = {
