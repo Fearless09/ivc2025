@@ -28,7 +28,7 @@ const Admin: FC<{ logOut: () => void }> = ({ logOut }) => {
   };
   const handleLogout = () => {
     logOut();
-    // sessionStorage.removeItem("isAdmin");
+    sessionStorage.removeItem("isAdmin");
   };
 
   const handleDelete = (id: number) => {
