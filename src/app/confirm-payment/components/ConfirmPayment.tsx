@@ -15,7 +15,7 @@ const ConfirmPayment: FC<{ member: Member[] }> = ({ member }) => {
         m.name.toLowerCase().includes(lowerCaseQuery) ||
         m.email.toLowerCase().includes(lowerCaseQuery),
     );
-  }, [member]);
+  }, [member, searchQuery]);
 
   return (
     <section className="bg-slate-50 pt-32 pb-24">
@@ -57,7 +57,7 @@ const ConfirmPayment: FC<{ member: Member[] }> = ({ member }) => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-black/7">
+              <tbody className="divide-y divide-black/5">
                 {filteredMembers.length > 0 ? (
                   filteredMembers.map((member) => (
                     <tr

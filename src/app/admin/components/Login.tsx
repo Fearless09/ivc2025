@@ -4,9 +4,7 @@ import { APP_CONFIG } from "@/data/constant";
 import { LockKeyhole } from "lucide-react";
 import { FC, useState } from "react";
 
-const Login: FC<{ toggleAuthenticated: (newState?: boolean) => void }> = ({
-  toggleAuthenticated,
-}) => {
+const Login: FC<{ logIn: () => void }> = ({ logIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
@@ -18,7 +16,7 @@ const Login: FC<{ toggleAuthenticated: (newState?: boolean) => void }> = ({
       username === APP_CONFIG.admin.username &&
       password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD
     ) {
-      toggleAuthenticated(true);
+      logIn();
       setLoginError("");
       sessionStorage.setItem("isAdmin", "true");
     } else {

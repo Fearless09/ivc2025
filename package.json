@@ -16,6 +16,7 @@
   "dependencies": {
     "@prisma/adapter-pg": "^7.2.0",
     "@prisma/client": "^7.2.0",
+    "@tanstack/react-query": "^5.90.12",
     "bip39": "^3.1.0",
     "clsx": "^2.1.1",
     "dotenv": "^17.2.3",

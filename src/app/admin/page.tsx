@@ -1,5 +1,6 @@
 "use client";
 
+import Admin from "./components/Admin";
 import Login from "./components/Login";
 import { useToggle } from "@/hooks/useToggle";
 
@@ -7,10 +8,10 @@ const AdminPage = () => {
   const [isAuthenticated, toggleAuthenticated] = useToggle(false);
 
   if (!isAuthenticated) {
-    return <Login toggleAuthenticated={toggleAuthenticated} />;
+    return <Login logIn={() => toggleAuthenticated(true)} />;
   }
 
-  return <div>AdminPage</div>;
+  return <Admin logOut={() => toggleAuthenticated(false)} />;
 };
 
 export default AdminPage;

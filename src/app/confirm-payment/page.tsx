@@ -1,12 +1,8 @@
-import prisma from "@/lib/prisma";
 import ConfirmPayment from "./components/ConfirmPayment";
-import { Member } from "@/utils/Type";
+import { getMembers } from "@/api/memberFunc";
 
 const ConfirmPaymentPage = async () => {
-  const member: Member[] = (await prisma.member.findMany()).map((m) => ({
-    ...m,
-    status: "Paid",
-  }));
+  const member = await getMembers();
 
   return <ConfirmPayment member={member} />;
 };

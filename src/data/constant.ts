@@ -21,6 +21,10 @@ export const APP_CONFIG = {
   admin: {
     username: "admin",
   },
+  formResponse:
+    "https://docs.google.com/forms/d/1tGWIRFp9FTCmpDU4vAPxSsoazacOKyUoXVcMF6ek8MM/edit#responses",
+  formResponseSheet:
+    "https://docs.google.com/spreadsheets/d/1ZqynCLKp1omzBSWpxYJTfoOQo_Zz5goaTA7UHddxGsM/edit?resourcekey=&gid=1776077833#gid=1776077833",
 };
 
 export const COLORS = {
