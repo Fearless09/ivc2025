@@ -2,7 +2,7 @@
 
 import { Member } from "@/utils/Type";
 import { SearchIcon, WalletCards } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 const ConfirmPayment = () => {
   const [searchQuery, setSearchQuery] = useState("");

@@ -14,10 +14,10 @@ const Footer = () => {
               collaboration with UUMC and MCAN.
             </p>
             <p className="text-xs text-slate-400 italic">
-              "Guarding the heart in the age of screen"
+              &ldquo;Guarding the heart in the age of screen&rdquo;
             </p>
-                  </div>
-                  
+          </div>
+
           <div>
             <h3 className="mb-4 text-lg font-bold text-white">
               Contact & Inquiries
@@ -36,8 +36,8 @@ const Footer = () => {
                 ),
               )}
             </ul>
-                  </div>
-                  
+          </div>
+
           <div>
             <h3 className="mb-4 text-lg font-bold text-white">Venue</h3>
             <p className="text-sm">University of Uyo Central Mosque</p>

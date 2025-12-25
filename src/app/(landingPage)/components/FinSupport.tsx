@@ -11,7 +11,7 @@ const FinSupport = () => {
           estimated for the execution of the 8 days programme.
         </p>
         <p className="text-sm font-medium text-emerald-700 italic">
-          "Ilali Amman Insha Allah! .. Come one!! Come all!!!"
+          &ldquo;Ilali Amman Insha Allah! .. Come one!! Come all!!!&rdquo;
         </p>
       </section>
     </section>

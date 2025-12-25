@@ -27,7 +27,7 @@ const Hero = () => {
           </h1>
 
           <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed font-medium text-slate-600 italic md:text-xl lg:mx-0">
-            "{APP_CONFIG.themeSubtext}"
+            &ldquo;{APP_CONFIG.themeSubtext}&rdquo;
           </p>
 
           <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
