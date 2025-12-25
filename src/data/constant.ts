@@ -20,7 +20,6 @@ export const APP_CONFIG = {
   externalRegLink: "https://forms.gle/N2sG1K4Eg86CKzzRA", // Replace with actual link
   admin: {
     username: "admin",
-    password: "ivc2025",
   },
 };
 

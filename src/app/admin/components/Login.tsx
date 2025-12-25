@@ -16,7 +16,7 @@ const Login: FC<{ toggleAuthenticated: (newState?: boolean) => void }> = ({
     e.preventDefault();
     if (
       username === APP_CONFIG.admin.username &&
-      password === APP_CONFIG.admin.password
+      password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD
     ) {
       toggleAuthenticated(true);
       setLoginError("");
