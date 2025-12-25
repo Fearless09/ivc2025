@@ -2,15 +2,20 @@
 
 import { Member } from "@/utils/Type";
 import { SearchIcon, WalletCards } from "lucide-react";
-import { useState } from "react";
+import { FC, useMemo, useState } from "react";
 
-const ConfirmPayment = () => {
+const ConfirmPayment: FC<{ member: Member[] }> = ({ member }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredMembers: Member[] = [];
-  //   const filteredMembers = useMemo(() => {
-  //     return searchMembers(searchQuery);
-  //   }, [searchQuery]);
+  const filteredMembers = useMemo(() => {
+    if (!searchQuery.trim()) return member;
+    const lowerCaseQuery = searchQuery.toLowerCase();
+    return member.filter(
+      (m) =>
+        m.name.toLowerCase().includes(lowerCaseQuery) ||
+        m.email.toLowerCase().includes(lowerCaseQuery),
+    );
+  }, [member]);
 
   return (
     <section className="bg-slate-50 pt-32 pb-24">
@@ -61,7 +66,7 @@ const ConfirmPayment = () => {
                     >
                       <td className="px-5 py-4 whitespace-nowrap">
                         <div className="text-sm font-bold text-slate-900">
-                          {member.fullName}
+                          {member.name}
                         </div>
                       </td>
                       <td className="px-5 py-4 text-sm whitespace-nowrap text-slate-500">
@@ -70,7 +75,7 @@ const ConfirmPayment = () => {
                       <td className="px-5 py-4 text-right whitespace-nowrap">
                         <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-700">
                           <span className="size-2 rounded-full bg-emerald-500"></span>
-                          Confirmed
+                          Paid
                         </span>
                       </td>
                     </tr>

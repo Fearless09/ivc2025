@@ -1,8 +1,8 @@
 export interface Member {
-  id: string;
-  fullName: string;
+  id: number;
   email: string;
-  registrationDate: string;
+  name: string;
+  createdAt: Date;
   status: "Paid" | "Pending";
 }
 
