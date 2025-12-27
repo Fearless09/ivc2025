@@ -1,21 +1,22 @@
 "use client";
 
-import { Member } from "@/utils/Type";
+import { useGetMembers } from "@/hooks/useGetMembers";
 import { SearchIcon, WalletCards } from "lucide-react";
-import { FC, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
-const ConfirmPayment: FC<{ member: Member[] }> = ({ member }) => {
+const ConfirmPayment = () => {
+  const { members } = useGetMembers();
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredMembers = useMemo(() => {
-    if (!searchQuery.trim()) return member;
+    if (!searchQuery.trim()) return members;
     const lowerCaseQuery = searchQuery.toLowerCase();
-    return member.filter(
+    return members.filter(
       (m) =>
         m.name.toLowerCase().includes(lowerCaseQuery) ||
         m.email.toLowerCase().includes(lowerCaseQuery),
     );
-  }, [member, searchQuery]);
+  }, [members, searchQuery]);
 
   return (
     <section className="bg-slate-50 pt-32 pb-24">
